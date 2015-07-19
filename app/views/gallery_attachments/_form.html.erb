@@ -1,0 +1,21 @@
+<%= image_tag @gallery_attachment.image_url(:thumb) %>
+<%= form_for(@gallery_attachment) do |f| %>
+  <% if @gallery_attachment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@gallery_attachment.errors.count, "error") %> prohibited this gallery_attachment from being saved:</h2>
+
+      <ul>
+      <% @gallery_attachment.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.file_field :image %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
